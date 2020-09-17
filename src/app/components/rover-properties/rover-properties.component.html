@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="formCameraGroup" class="d-flex justify-content-center row">
+    <div class="container-camera col-sm-6 col-xs-12 col-md-3 m-2">
+      <p>select camera</p>
+      <mat-checkbox
+        class="camera"
+        *ngFor="let item of rover.camera"
+        [formControlName]="item"
+        [color]="color">
+        {{ item }}
+      </mat-checkbox>
+    </div>
+    <div class="container-calendar col-sm-6 col-xs-12 col-md-3 m-2">
+      <p>select sol</p>
+      <mat-calendar
+        [dateFilter]="filterDates"
+        #calendar [(selected)]="selectedDate"
+        (selectedChange)="onSelectDate($event)">
+      </mat-calendar>
+    </div>
+    <div class="container-camera col-sm-6 col-xs-12 col-md-3 m-2">
+      <button class="btn" (click)="setParams()" [disabled]="formCameraGroup.invalid">view photo&#62;&#62;&#62;</button>
+    </div>
+  </form>
+</div>

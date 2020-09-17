@@ -1,0 +1,12 @@
+<mat-grid-list cols="10" rowHeight="4rem">
+  <mat-grid-tile *ngFor="let photo of photoList | paginate: { itemsPerPage: 10, currentPage: pageEvent }" [colspan]="2" [rowspan]="3">
+    <mat-card class="dashboard-card">
+      <img [src]="photo.img_src" alt="">
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<div *ngIf="photoList.length == 0">
+  <p>unfortunately at this time this camera did not take pictures</p>
+  <p>return to the main page and try to select other days and cameras</p>
+</div>
+<pagination-controls (pageChange)="pageEvent = $event" previousLabel="" nextLabel="Load More"></pagination-controls>

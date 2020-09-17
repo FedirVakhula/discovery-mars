@@ -1,0 +1,8 @@
+<carousel isAnimated="true" (activeSlideChange)="onActiveSlideChange($event)" >
+  <slide *ngFor="let item of roversList">
+    <img [src]="item.image" alt="first slide" style="display: block; width: 100%;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3>{{ item.name }}</h3>
+    </div>
+  </slide>
+</carousel>
